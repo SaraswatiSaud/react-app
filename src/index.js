@@ -1,20 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 
-class HelloWorld extends React.Component {
-  constructor(){
+class TodoList extends React.Component {
+  constructor() {
     super();
-    this.name = 'Saraswati Saud';
+    this.state = {
+      names: ['Pintoo', 'Chintoo', 'Mintoo']
+    }
   }
 
   render() {
     return(
-      <div className='foo'>
-        <p>Hello {this.name}</p>
-      </div>
+      <ul>
+        {
+          this.state.names.map(function(name) {
+            return <ListItems details={name} />
+          })
+        }
+      </ul>
     );
   }
 }
 
-ReactDOM.render(<HelloWorld />, document.getElementById('root'))
+class ListItems extends React.Component {
+  render() {
+    return(
+      <li>{this.props.details}</li>
+    );
+  }
+}
+
+ReactDOM.render(<TodoList />, document.getElementById('root'))
