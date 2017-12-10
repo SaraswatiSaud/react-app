@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+// import './index.css';
 
 class Test extends React.Component {
   constructor() {
@@ -34,7 +34,7 @@ class Test extends React.Component {
           <p>{this.state.value}</p>
           <button onClick={this.decrement}>Decrement</button>
           <hr />
-          <p className={this.state.color ? 'red' : 'green'}>Change the color</p>
+          <p className={this.state.color === true ? 'red' : 'green'}>Change the color</p>
           <button onClick={this.handleClick}>{this.state.text}</button>
         </div>
       )

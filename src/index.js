@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TodoItem from './components/TodoItem';
+import Test from './components/Test';
 import './index.css';
 
 class TodoList extends React.Component {
@@ -39,27 +41,16 @@ class TodoList extends React.Component {
         <p>Todo lists</p>
         <ul>
           {this.state.tasks.map((task, index) => {
-            return <ListItem key={task.name}
+            return <TodoItem key={task.name}
                              clickHandler={this.changeStatus}
                              index = {index}
                              details={task}
                     />
           })}
         </ul>
+        <hr />
+        <Test />
       </div>
-    )
-  }
-}
-
-class ListItem extends React.Component {
-  render() {
-    return(
-      <li onClick={ () => {
-        this.props.clickHandler(this.props.index);
-      }}
-        className={this.props.details.completed ? 'completed' : ''}>
-        {this.props.details.name}
-      </li>
     )
   }
 }
