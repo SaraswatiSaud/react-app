@@ -11,6 +11,7 @@ class TodoList extends React.Component {
     this.changeStatus = this.changeStatus.bind(this);
     this.updateTask = this.updateTask.bind(this);
     this.addTask = this.addTask.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
     this.state = {
       tasks: [
         {
@@ -49,6 +50,15 @@ class TodoList extends React.Component {
     })
   }
 
+  deleteTask(index) {
+    let tasks = this.state.tasks;
+    tasks.splice(index, 1);
+    this.setState({
+      tasks
+    })
+
+  }
+
   changeStatus(index) {
     var tasks = this.state.tasks;
     var task = tasks[index];
@@ -70,6 +80,7 @@ class TodoList extends React.Component {
             return <TodoItem key={task.name}
                              clickHandler={this.changeStatus}
                              index = {index}
+                             deleteTask = {this.deleteTask}
                              details={task}
                     />
           })}
